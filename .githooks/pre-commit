@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Виконання скрипту для перевірки секретів
+node src/check_secrets.js
+status=$?
+
+if [ $status -ne 0 ]; then
+    echo "Commit rejected due to secrets detected."
+    exit 1
+fi
+
+exit 0
